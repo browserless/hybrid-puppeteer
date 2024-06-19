@@ -1,0 +1,24 @@
+{
+  "name": "hybrid-puppeteer",
+  "version": "1.0.0",
+  "description": "A hybrid web-app for interacting with a headless browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ."
+  },
+  "keywords": [
+    "puppeteer",
+    "hybrid",
+    "automation",
+    "human"
+  ],
+  "author": "joelgriffith",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "puppeteer-core": "^22.11.2"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
