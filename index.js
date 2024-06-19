@@ -57,9 +57,9 @@ function debounce(func, waitMilliseconds = 50, options = {}) {
 }
 
 class HybridPuppeteer {
-  url = 'https://gmail.com/';
+  browserWSEndpoint = '';
+  url = '';
   quality = 100;
-  browserWSEndpoint = 'ws://localhost:3000';
 
   width = window.innerWidth;
   height = window.innerHeight;
@@ -70,7 +70,11 @@ class HybridPuppeteer {
   browser = null;
   page = null;
 
-  constructor() {
+  constructor(browserWSEndpoint, url, quality) {
+    this.browserWSEndpoint = browserWSEndpoint;
+    this.url = url;
+    this.quality = quality ?? 100;
+
     this.setup();
   }
 
@@ -284,4 +288,9 @@ class HybridPuppeteer {
   };
 }
 
-new HybridPuppeteer();
+const params = new URL(window.location.href);
+const browserWSEndpoint = params.searchParams.get('browserWSEndpoint');
+const url = params.searchParams.get('url');
+const quality = params.searchParams.get('quality') ?? 100;
+
+new HybridPuppeteer(browserWSEndpoint, url, quality);
